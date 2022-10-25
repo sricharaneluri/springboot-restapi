@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,4 +50,4 @@ jobs:
           app-name: 'springboot-restapi-test'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5F17E9BD93B840C7A6F3ADE75DCEC73D }}
-          package: '*.war'
+          package: '*.jar'
