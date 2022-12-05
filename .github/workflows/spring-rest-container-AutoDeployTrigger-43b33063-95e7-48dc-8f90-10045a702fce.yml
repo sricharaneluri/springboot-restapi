@@ -66,5 +66,5 @@ jobs:
         with:
           inlineScript: |
             az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp registry set -n spring-rest-container -g app-dev-rg --server springbootcontainers.azurecr.io --username  ${{ secrets.SPRINGRESTCONTAINER_REGISTRY_USERNAME }} --password ${{ secrets.SPRINGRESTCONTAINER_REGISTRY_PASSWORD }}
-            az containerapp update -n spring-rest-container -g app-dev-rg --image springbootcontainers.azurecr.io/welcome:${{ github.sha }}
+            az containerapp registry set -n spring-rest-container-new -g app-dev-rg --server springbootcontainers.azurecr.io --username  ${{ secrets.SPRINGRESTCONTAINER_REGISTRY_USERNAME }} --password ${{ secrets.SPRINGRESTCONTAINER_REGISTRY_PASSWORD }}
+            az containerapp update -n spring-rest-container-new -g app-dev-rg --image springbootcontainers.azurecr.io/welcome:${{ github.sha }}
