@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://helloservicescontianer.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_b611bfabe85b4da4b73dc414e8ae580e }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_1aba2d43c8a5446fb1a5840252a566b0 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_6c5bbb59a4824810b8d47a9e7467bd72 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_43e65176c9b346c88fa270c0f1aa2e02 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: helloservicescontianer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b611bfabe85b4da4b73dc414e8ae580e }}/test:${{ github.sha }}
+        tags: helloservicescontianer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6c5bbb59a4824810b8d47a9e7467bd72 }}/test:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'text'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_88815c68a5b54054b16d965a4204f5be }}
-        images: 'helloservicescontianer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b611bfabe85b4da4b73dc414e8ae580e }}/test:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8bc3464a0d5f4c78a390997fad2f337a }}
+        images: 'helloservicescontianer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6c5bbb59a4824810b8d47a9e7467bd72 }}/test:${{ github.sha }}'
